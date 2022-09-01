@@ -11,6 +11,13 @@ layout: base.njk
     </div>
 </div>
 
+<ul>
+{% for article in news.articles %}
+    <li>
+        {{ article.title }}
+    </li>
+{% endfor %}
+</ul>
 <header>
     <a href="/">Your page</a> | <a href="/about">About this page of yours</a>
 </header>
