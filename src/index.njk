@@ -12,7 +12,7 @@ layout: base.njk
 </div>
 
 <ul>
-{% for Item in temps.Items %}
+{% for Item in getTemps.Items %}
     <li>
         {{ Item.id }}
     </li>
@@ -24,3 +24,4 @@ layout: base.njk
 </header>
 
 <script src="/js/vibe.js"></script>
+<script src="/js/getTemps.js"></script>
