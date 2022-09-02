@@ -14,7 +14,7 @@ layout: base.njk
 <ul>
 {% for Item in getTemps.Items %}
     <li>
-        {{ Item.id }}
+        {{ Item.id }} | {{ Item.temperature }} | {{ Item.humidity }}
     </li>
 {% endfor %}
 </ul>
