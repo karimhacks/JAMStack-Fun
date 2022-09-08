@@ -34,15 +34,21 @@ layout: base.njk
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       data: {
         "values": [
-          {"temp": "A", "timestamp": 28}, {"temp": "timestamp", "timestamp": 55}, {"temp": "C", "timestamp": 43},
-          {"temp": "D", "timestamp": 91}, {"temp": "E", "timestamp": 81}, {"temp": "F", "timestamp": 53},
-          {"temp": "G", "timestamp": 19}, {"temp": "H", "timestamp": 87}, {"temp": "I", "timestamp": 52}
+          
+          {% for Item in getTemps.Items %}
+            { "temp": "{{ Item.humidity }}", "timestamp": "{{ Item.id }}" }{% if not loop.last %}, {% endif %}
+          {% endfor %}
         ]
       },
+
+          //{"temp": "A", "timestamp": 28}, {"temp": "timestamp", "timestamp": 55}, {"temp": "C", "timestamp": 43},
+          //{"temp": "D", "timestamp": 91}, {"temp": "E", "timestamp": 81}, {"temp": "F", "timestamp": 53},
+          //{"temp": "G", "timestamp": 19}, {"temp": "H", "timestamp": 87}, {"temp": "I", "timestamp": 52}
+        
       
       mark: 'line',
         "encoding": {
-          "x": {"field": "timestamp", "type": "nominal", "axis": {"labelAngle": 0} },
+          "x": {"field": "timestamp", "type": "nominal", "axis": {"labelAngle": 270} },
           //"y": {"field": "b", "type": "quantitative"}
           "y": {"field": "temp", "type": "quantitative"}
         }
