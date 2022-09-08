@@ -22,29 +22,37 @@ layout: base.njk
 <header>
     <a href="/">Your page</a> | <a href="/about">About this page of yours</a>
 </header>
+
+<h1>Template for Embedding Vega-Lite Visualization</h1>
+<!-- Container for the visualization -->
+<div id="vis"></div>
+
 <script>
-    {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A simple line chart with embedded data.",
-  "data": {
-    "values": [
-      {"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43},
-      {"a": "D", "b": 91}, {"a": "E", "b": 81}, {"a": "F", "b": 53},
-      {"a": "G", "b": 19}, {"a": "H", "b": 87}, {"a": "I", "b": 52}
-    ]
-  },
-  "mark": "line",
-  "encoding": {
-    "x": {"field": "a", "type": "nominal", "axis": {"labelAngle": 0}},
-    "y": {"field": "b", "type": "quantitative"}
-  }
-}
+
+  // Assign the viz specification to a local variable vlSpec.
+  var vlSpec = {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      data: {
+        "values": [
+          {"temp": "A", "timestamp": 28}, {"temp": "timestamp", "timestamp": 55}, {"temp": "C", "timestamp": 43},
+          {"temp": "D", "timestamp": 91}, {"temp": "E", "timestamp": 81}, {"temp": "F", "timestamp": 53},
+          {"temp": "G", "timestamp": 19}, {"temp": "H", "timestamp": 87}, {"temp": "I", "timestamp": 52}
+        ]
+      },
+      
+      mark: 'line',
+        "encoding": {
+          "x": {"field": "timestamp", "type": "nominal", "axis": {"labelAngle": 0} },
+          //"y": {"field": "b", "type": "quantitative"}
+          "y": {"field": "temp", "type": "quantitative"}
+        }
+  };
+
+  // Embed the visualization in the container with id `vis`
+  vegaEmbed('#vis', vlSpec);
+
 </script>
 
-// vega-lite
-<script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
 <script src="/js/vibe.js"></script>
 <script src="/js/getTemps.js"></script>
