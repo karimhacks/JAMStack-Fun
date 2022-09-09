@@ -36,7 +36,9 @@ layout: base.njk
         "values": [
           
           {% for Item in getTemps.Items %}
-            { "temp": "{{ Item.humidity }}", "timestamp": "{{ Item.id }}" }{% if not loop.last %}, {% endif %}
+            // slice off the degree symbol and temperature scale char (C/F).
+            // if it's not the last line of the dictionary, append a comma
+            { "temp": "{{ Item.temperature.slice(0,-2) }}", "timestamp": "{{ Item.id }}" }{% if not loop.last %}, {% endif %}
           {% endfor %}
         ]
       },
