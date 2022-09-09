@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name=""viewport" content=""width=device-width, initial-scale="1.0">
+        <title>A page for you</title>
+        
+        <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+        <!-- these needed to be in the HEAD of the HTML document -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <!-- Import vega-embed -->
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+        <style>
+            body {
+                text-align: center;
+            }
+            div.container {
+                width:400px;
+                margin: 0 auto;
+            }
+            .love {
+                font-size: 4em;
+            }
+        </style>
+
+        <style media="screen">
+            /* Add space between Vega-Embed links  */
+            .vega-actions a {
+            margin-right: 5px;
+            }
+        </style>
+
+    </head>
+    <body>
+        
+<div class="container">
+    <h1>This is a page for you!!!</h1>
+    <div class="vibe">You are great!</div>
+    <div class="love">
+        ❤️
+    </div>
+</div>
+
+<ul>
+
+    <li>
+        2022-08-26T19:11:24.168Z | 23.6°C | 66
+    </li>
+
+    <li>
+        2022-08-13T02:36:26.020Z | 22.7°C | 59
+    </li>
+
+    <li>
+        2022-08-26T10:15:58.154Z | 24°C | 66
+    </li>
+
+    <li>
+        2022-08-28T22:35:30.163Z | 23.8°C | 61
+    </li>
+
+    <li>
+        2022-09-06T12:52:51.095Z | 23.9°C | 78
+    </li>
+
+    <li>
+        2022-09-08T16:02:42.648Z | 23.9°C | 74
+    </li>
+
+    <li>
+        2022-09-07T01:10:02.981Z | 23.6°C | 70
+    </li>
+
+    <li>
+        2022-08-12T17:09:22.370Z | 22.4°C | 59
+    </li>
+
+    <li>
+        2022-08-26T03:32:15.475Z | 23.6°C | 66
+    </li>
+
+    <li>
+        2022-09-03T01:20:26.343Z | 24°C | 62
+    </li>
+
+    <li>
+        2022-09-06T17:06:45.956Z | 24°C | 76
+    </li>
+
+    <li>
+        2022-08-28T14:01:34.530Z | 24.5°C | 71
+    </li>
+
+    <li>
+        2022-09-09T15:59:09.107Z | 23.8°C | 70
+    </li>
+
+    <li>
+        2022-09-06T21:47:01.312Z | 23.9°C | 74
+    </li>
+
+    <li>
+        2022-08-12T17:48:01.487Z | 22.2°C | 59
+    </li>
+
+    <li>
+        2022-08-27T17:16:51.142Z | 24.1°C | 67
+    </li>
+
+    <li>
+        2022-08-12T17:08:12.179Z | 22.4°C | 59
+    </li>
+
+    <li>
+        2022-09-07T18:23:38.488Z | 23.6°C | 76
+    </li>
+
+    <li>
+        2022-09-01T18:02:55.503Z | 23.6°C | 60
+    </li>
+
+    <li>
+        2022-09-04T14:11:23.679Z | 24.3°C | 68
+    </li>
+
+    <li>
+        2022-08-26T17:29:06.226Z | 23.8°C | 66
+    </li>
+
+</ul>
+
+<header>
+    <a href="/">Your page</a> | <a href="/about">About this page of yours</a>
+</header>
+
+<h1>Template for Embedding Vega-Lite Visualization</h1>
+<!-- Container for the visualization -->
+<div id="vis"></div>
+
+<script>
+
+  // Assign the viz specification to a local variable vlSpec.
+  var vlSpec = {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      data: {
+        "values": [
+          
+          
+            { "temp": "66", "timestamp": "2022-08-26T19:11:24.168Z" }, 
+          
+            { "temp": "59", "timestamp": "2022-08-13T02:36:26.020Z" }, 
+          
+            { "temp": "66", "timestamp": "2022-08-26T10:15:58.154Z" }, 
+          
+            { "temp": "61", "timestamp": "2022-08-28T22:35:30.163Z" }, 
+          
+            { "temp": "78", "timestamp": "2022-09-06T12:52:51.095Z" }, 
+          
+            { "temp": "74", "timestamp": "2022-09-08T16:02:42.648Z" }, 
+          
+            { "temp": "70", "timestamp": "2022-09-07T01:10:02.981Z" }, 
+          
+            { "temp": "59", "timestamp": "2022-08-12T17:09:22.370Z" }, 
+          
+            { "temp": "66", "timestamp": "2022-08-26T03:32:15.475Z" }, 
+          
+            { "temp": "62", "timestamp": "2022-09-03T01:20:26.343Z" }, 
+          
+            { "temp": "76", "timestamp": "2022-09-06T17:06:45.956Z" }, 
+          
+            { "temp": "71", "timestamp": "2022-08-28T14:01:34.530Z" }, 
+          
+            { "temp": "70", "timestamp": "2022-09-09T15:59:09.107Z" }, 
+          
+            { "temp": "74", "timestamp": "2022-09-06T21:47:01.312Z" }, 
+          
+            { "temp": "59", "timestamp": "2022-08-12T17:48:01.487Z" }, 
+          
+            { "temp": "67", "timestamp": "2022-08-27T17:16:51.142Z" }, 
+          
+            { "temp": "59", "timestamp": "2022-08-12T17:08:12.179Z" }, 
+          
+            { "temp": "76", "timestamp": "2022-09-07T18:23:38.488Z" }, 
+          
+            { "temp": "60", "timestamp": "2022-09-01T18:02:55.503Z" }, 
+          
+            { "temp": "68", "timestamp": "2022-09-04T14:11:23.679Z" }, 
+          
+            { "temp": "66", "timestamp": "2022-08-26T17:29:06.226Z" }
+          
+        ]
+      },
+
+          //{"temp": "A", "timestamp": 28}, {"temp": "timestamp", "timestamp": 55}, {"temp": "C", "timestamp": 43},
+          //{"temp": "D", "timestamp": 91}, {"temp": "E", "timestamp": 81}, {"temp": "F", "timestamp": 53},
+          //{"temp": "G", "timestamp": 19}, {"temp": "H", "timestamp": 87}, {"temp": "I", "timestamp": 52}
+        
+      
+      mark: 'line',
+        "encoding": {
+          "x": {"field": "timestamp", "type": "nominal", "axis": {"labelAngle": 270} },
+          //"y": {"field": "b", "type": "quantitative"}
+          "y": {"field": "temp", "type": "quantitative"}
+        }
+  };
+
+  // Embed the visualization in the container with id `vis`
+  vegaEmbed('#vis', vlSpec);
+
+</script>
+
+
+<script src="/js/vibe.js"></script>
+<script src="/js/getTemps.js"></script>
+
+    </body>
+</html>
