@@ -37,7 +37,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      - name: Trigger Netlify build
-      
       - name: Curl request
         run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_URL }}
